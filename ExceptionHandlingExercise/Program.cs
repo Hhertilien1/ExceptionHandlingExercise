@@ -19,11 +19,15 @@ namespace ExceptionHandlingExercise
 
             //TODO START HERE:
 
-            // 1) Create an char[], it must contain 6 numbers and 3 letters - name it arr
-            
-            // 2) Create a list called numbers that will hold integers
-        
-            // 3) Create an string variable with an empty string initializer - name it str
+            // 1) Create an char[], it must contain 6 numbers and 3 letters - name it arr DONE
+            var arr = new char[] { 'h', 'k', 'c', '1', '2', '3', '4', '5', '6' };
+
+            // 2) Create a list called numbers that will hold integers DONE
+            var numList = new List<int>();
+
+            // 3) Create an string variable with an empty string initializer - name it str DONE
+            string str;
+
             
             // 4) Make a foreach loop to iterate through your character array            
                 // 5) Create a try-catch inide of your foreach loop
@@ -31,17 +35,31 @@ namespace ExceptionHandlingExercise
                         // 7) Set your string variable to each array element in your char[] to .ToString()
                         // 8) Now, using int.Parse, parse your string variable and store in an int variable
                         // 9) Then add each int to your list
-                
+
                    // 10) Inside the catch block:
                        // 11) In the scope of your catch you can use the following code:                  
                        // Console.WriteLine($"Unable to Parse '{character}'"); //character will be the name of each item in your collection
                 
-            
+            foreach (var item in arr)
+            {
+                try
+                {
+                    str = item.ToString();
+                    int newValue = int.Parse(str);
+                    numList.Add(newValue);
+                }
+                catch
+                {
+                    Console.WriteLine($"Unable to Parse '{item}'");
+                }
+            }
+
+
             // Uncomment the code below to see the numbers you successfully added to the numbers list: 
-            //foreach (var num in numbers)
-            //{
-            //    Console.WriteLine(num);
-            //}
+            foreach (var num in numList)
+            {
+                Console.WriteLine(num);
+            }
         }
     }
 }
